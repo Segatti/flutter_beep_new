@@ -1,14 +1,17 @@
-# flutter_beep Example
+# example
 
-Demonstrates how to use the flutter_beep plugin.
-```dart
-import 'package:flutter_beep/flutter_beep.dart';
+A new Flutter project.
 
-RaisedButton( child: Text("Beep Success"), onPressed: ()=> FlutterBeep.beep()),
-RaisedButton( child: Text("Beep Fail"), onPressed: ()=> FlutterBeep.beep(false)),
-RaisedButton( child: Text("Beep Android Custom"), onPressed: ()=> FlutterBeep.playSysSound(AndroidSoundIDs.TONE_CDMA_ABBR_ALERT)),
-RaisedButton( child: Text("Beep somthing"), onPressed: ()=> FlutterBeep.playSysSound(41)),
-RaisedButton( child: Text("Beep iOS Custom"), onPressed: ()=> FlutterBeep.playSysSound(iOSSoundIDs.AudioToneBusy)),
-```
+## Getting Started
 
-FREE
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
+- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

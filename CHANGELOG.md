@@ -1,3 +1,6 @@
+## 1.2.0
+* Upgraded Android dependencies
+
 ## 1.1.0
 * Upgraded Android dependencies
 * Refactored methodchannel registration
