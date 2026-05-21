@@ -1,18 +1,62 @@
 # flutter_beep_new
-A very lite module to play system sounds and beep for flutter apps (no sound files)
-## Sponsor by
-[Go Noter app](https://gonoter.com "Go Noter - Group travel asssistant") - Group travel and expenses assistant!
 
+Play system beeps and tones on **Android** and **iOS** without shipping audio files.
+
+Maintained fork of [flutter_beep](https://pub.dev/packages/flutter_beep) with:
+
+- Android plugin in **Kotlin** (Gradle Kotlin DSL, built-in Kotlin)
+- iOS plugin with **CocoaPods** and **Swift Package Manager**
+- Minimum Flutter **3.44**
+
+## Installation
+
+Add to `pubspec.yaml`:
+
+```yaml
+dependencies:
+  flutter_beep_new: ^1.2.0
+```
+
+Then run:
+
+```bash
+flutter pub get
+```
+
+## Usage
 
 ```dart
 import 'package:flutter_beep_new/flutter_beep_new.dart';
 
-RaisedButton( child: Text("Beep Success"), onPressed: ()=> FlutterBeep.beep()),
-RaisedButton( child: Text("Beep Fail"), onPressed: ()=> FlutterBeep.beep(false)),
-RaisedButton( child: Text("Beep Android Custom"), onPressed: ()=> FlutterBeep.playSysSound(AndroidSoundIDs.TONE_CDMA_ABBR_ALERT)),
-RaisedButton( child: Text("Beep somthing"), onPressed: ()=> FlutterBeep.playSysSound(41)),
-RaisedButton( child: Text("Beep iOS Custom"), onPressed: ()=> FlutterBeep.playSysSound(iOSSoundIDs.AudioToneBusy)),
+// Default success / failure beep (platform-specific sound IDs)
+await FlutterBeep.beep();
+await FlutterBeep.beep(false);
+
+// Custom system sound by ID
+await FlutterBeep.playSysSound(AndroidSoundIDs.TONE_PROP_BEEP);
+await FlutterBeep.playSysSound(iOSSoundIDs.AudioToneBusy);
 ```
 
+### Sound ID constants
 
-LICENSE: FREE
+- `AndroidSoundIDs` — Android `ToneGenerator` constants
+- `iOSSoundIDs` — iOS `AudioServices` system sound IDs
+
+See the [example](example/lib/main.dart) app for more samples.
+
+## Platform notes
+
+| Platform | API |
+|----------|-----|
+| Android | `ToneGenerator` via method channel |
+| iOS | `AudioServicesPlaySystemSound` via method channel |
+
+On Android, `playSysSound` stops any previous tone before playing a new one.
+
+## Sponsor
+
+[Go Noter](https://gonoter.com) — group travel and expenses assistant.
+
+## License
+
+BSD-3-Clause. See [LICENSE](LICENSE).
