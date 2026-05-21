@@ -5,7 +5,7 @@ homepage: https://github.com/Segatti/flutter_beep_new
 
 environment:
   sdk: ^3.12.0
-  flutter: ">=1.17.0"
+  flutter: ">=3.44.0"
 
 dependencies:
   flutter:
@@ -21,6 +21,13 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.gonoter.flutter_beep
+        pluginClass: FlutterBeepPlugin
+      ios:
+        pluginClass: FlutterBeepPlugin
 
   # To add assets to your package, add an assets section, like this:
   # assets:
